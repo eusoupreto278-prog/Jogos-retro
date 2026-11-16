@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>DOOM</title>
+  <script src="https://js-dos.com/6.22/current/js-dos.js"></script>
+  <style>
+    body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; height: 100vh; }
+    #game { width: 960px; height: 540px; }
+  </style>
+</head>
+<body>
+  <canvas id="game"></canvas>
+  <script>
+    Dos(document.getElementById("game"), {
+      wdosboxUrl: "https://js-dos.com/6.22/current/wdosbox.js",
+    }).ready(function(fs, main) {
+      fs.extract("/static/doom.ZIP").then(function() {
+        main(["-c", "DOOM.EXE"]);
+      });
+    });
+  </script>
+</body>
+</html>
